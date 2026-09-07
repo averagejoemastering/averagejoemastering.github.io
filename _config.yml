@@ -11,6 +11,9 @@ people:
 - name: Joe
   pic: 1
   position: Mastering Engineer 
+- name: Layla
+  pic: 2
+  position: HR
 
 
 # Postal address (add as many lines as necessary)
