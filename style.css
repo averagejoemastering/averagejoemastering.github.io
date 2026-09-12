@@ -22,10 +22,10 @@ layout: style
 
 /* Base style for each item (Phone View - Shows 1 at a time) */
 .audio-slide-item {
-    flex: 0 0 85%; /* Shows most of the item, leaving a peek of the next one */
-    scroll-snap-align: center;
-    box-sizing: border-box;
-}
+     /* Calculates exactly 2 items wide, factoring in the 20px gaps */
+        flex: 0 0 calc((100% - 40px) / 2); 
+        scroll-snap-align: start;
+    }
 
 /* Laptop/Desktop View (Screens wider than 992px) */
 @media (min-width: 992px) {
@@ -38,7 +38,7 @@ layout: style
 
 
 /* button sliders */
-* Position wrapper so arrows can sit on the sides */
+/* Position wrapper so arrows can sit on the sides */
 .slider-wrapper {
     position: relative;
     padding: 0 40px; /* Gives room for the arrows */
@@ -76,9 +76,3 @@ layout: style
 
 .prev-btn { left: 0; }
 .next-btn { right: 0; }
-
-/* Hide navigation buttons on mobile phones since swipe gestures work automatically */
-@media (max-width: 767px) {
-    .slider-wrapper { padding: 0; }
-    .slider-btn { display: none; }
-}
