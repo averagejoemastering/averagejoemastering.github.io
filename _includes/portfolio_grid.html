@@ -12,8 +12,8 @@
         <div class="slider-wrapper">
             
             <!-- Navigation Buttons -->
-            <button class="slider-btn prev-btn" onclick="scrollSlider(-1)">&#10094;</button>
-            <button class="slider-btn next-btn" onclick="scrollSlider(1)">&#10095;</button>
+            <button class="slider-btn prev-btn" onclick="scrollSlider(-1)">❮</button>
+            <button class="slider-btn next-btn" onclick="scrollSlider(1)">❯</button>
 
             <div class="row">
                 <!-- Added id="audioSlider" here -->
@@ -22,73 +22,105 @@
                     <!-- Item 1 -->
                     <div class="audio-slide-item">
                         <div class="audio-island">
+                            <!-- New Image & Play Button Container -->
+                            <div class="audio-cover-wrapper">
+                                <img src="/img/portfolio/EmbersOfAutumn.jpeg" class="audio-cover">
+                                <div class="play-button-overlay">
+                                    <svg viewBox="0 0 24 24" fill="currentColor" class="play-icon">
+                                        <path d="M8 5v14l11-7z"/>
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <p class="audio-meta">
+                                <strong>Embers Of Autumn</strong> (US)<br>
+                                <strong>Genre:</strong> Metal (post hardcore)<br>
+                                <strong>Project:</strong> Full length album  
+                            </p>
+                            
+                            <!-- Hidden audio element (controlled via JavaScript) -->
+                            <audio class="audio-player" loop>
+                                <source src="../audio/EmbersOfAutumn.mp3" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="audio-slide-item">
+                        <div class="audio-island">
+                            <!-- New Image & Play Button Container -->
+                            <div class="audio-cover-wrapper">
+                                <img src="/img/portfolio/Deccas.jpg" class="audio-cover">
+                                <div class="play-button-overlay">
+                                    <svg viewBox="0 0 24 24" fill="currentColor" class="play-icon">
+                                        <path d="M8 5v14l11-7z"/>
+                                    </svg>
+                                </div>
+                            </div>
+
                             <p class="audio-meta">
                                 <strong>Deccas</strong> (AUS)<br>
                                 <strong>Genre:</strong> Hip Hop <br>
                                 <strong>Project:</strong> Full length album  
                             </p>
-                            <audio controls loop>
+                            
+                            <!-- Hidden audio element (controlled via JavaScript) -->
+                            <audio class="audio-player" loop>
                                 <source src="../audio/Deccas_OneWish.mp3" type="audio/mpeg">
                                 Your browser does not support the audio element.
                             </audio>
                         </div>
                     </div>
                       
+                    <!-- Item 3 -->
                     <div class="audio-slide-item">
                         <div class="audio-island">
-                            <p class="audio-meta">
-                                <strong>Embers Of Autumn</strong> (US)<br>
-                                <strong>Genre:</strong> Metal (post hardcore)<br>
-                                <strong>Project:</strong> Full length album  
-                            </p>
-                            <audio controls loop>
-                                <source src="../audio/EmbersOfAutumn.mp3" type="audio/mpeg">
-                                Your browser does not support the audio element.
-                            </audio>
-                        </div>
-                    </div>
-                    <!-- Item 2 -->
-                    <div class="audio-slide-item">
-                        <div class="audio-island">
+                            <!-- New Image & Play Button Container -->
+                            <div class="audio-cover-wrapper">
+                                <img src="/img/portfolio/SWITCH.jpg" class="audio-cover">
+                                <div class="play-button-overlay">
+                                    <svg viewBox="0 0 24 24" fill="currentColor" class="play-icon">
+                                        <path d="M8 5v14l11-7z"/>
+                                    </svg>
+                                </div>
+                            </div>
                             <p class="audio-meta">
                                 <strong>S.W.I.T.C.H.</strong> (FR)<br>
                                 <strong>Genre:</strong> Hard Rock <br>
                                 <strong>Project:</strong> Multiple singles 
                             </p>
-                            <audio controls loop>
+                             <!-- Hidden audio element (controlled via JavaScript) -->
+                            <audio class="audio-player" loop>
                                 <source src="../audio/SWITCH.mp3" type="audio/mpeg">
                                 Your browser does not support the audio element.
                             </audio>
                         </div>
                     </div>
 
-                    <!-- Item 3 -->
+                    <!-- Item 4  -->
                     <div class="audio-slide-item">
                         <div class="audio-island">
-                            <p class="audio-meta">
-                                <strong>Falekie</strong> (AUS)<br>
-                                <strong>Genre:</strong> Soft pop <br>
-                                <strong>Project:</strong> Multiple singles
-                            </p>
-                            <audio controls loop>
-                                <source src="../audio/Falekie.mp3" type="audio/mpeg">
-                                Your browser does not support the audio element.
-                            </audio>
-                        </div>
-                    </div>
-
-                    <!-- Item 4 (Test item to ensure scrolling works) -->
-                    <div class="audio-slide-item">
-                        <div class="audio-island">
+                            <!-- New Image & Play Button Container -->
+                            <div class="audio-cover-wrapper">
+                                <img src="/img/portfolio/Sianna.jpg" class="audio-cover">
+                                <div class="play-button-overlay">
+                                    <svg viewBox="0 0 24 24" fill="currentColor" class="play-icon">
+                                        <path d="M8 5v14l11-7z"/>
+                                    </svg>
+                                </div>
+                            </div>
                             <p class="audio-meta">
                                 <strong>Sianna </strong> (AUS) <br>
                                 <strong>Genre:</strong> Rock <br>
                                 <strong>Project:</strong> Singles
                             </p>
-                            <audio controls loop>
+                             <!-- Hidden audio element (controlled via JavaScript) -->
+                            <audio class="audio-player" loop> 
                                 <source src="../audio/SiannaRae_MyOwnLife.mp3" type="audio/mpeg">
                                 Your browser does not support the audio element.
                             </audio>
+
                         </div>
                     </div>
 
@@ -97,36 +129,68 @@
         </div>
     </div>
 
-    <script>
+<script>
+// 1. Fixed Slider Functionality
 function scrollSlider(direction) {
     const slider = document.getElementById('audioSlider');
     if (!slider) return;
 
-    // Detect how wide one single item slot currently is
     const firstItem = slider.querySelector('.audio-slide-item');
     if (!firstItem) return;
     
-    const slideWidth = firstItem.clientWidth + 20; // item width + 20px gap
+    const slideWidth = firstItem.clientWidth + 20; // item width + gap
     
-    // Scroll left or right
     slider.scrollBy({
         left: direction * slideWidth,
         behavior: 'smooth'
     });
 }
-document.addEventListener('play', function(e) {
-    // Get all audio elements on the page
-    const allAudios = document.getElementsByTagName('audio');
-    
-    // Loop through them and pause any track that isn't the one that just started playing
-    for (let i = 0; i < allAudios.length; i++) {
-        if (allAudios[i] !== e.target) {
-            allAudios[i].pause();
-            // Optional: Uncomment the next line if you want to reset the paused songs back to the start
-            // allAudios[i].currentTime = 0; 
+
+// 2. Play/Pause Path Values
+const playPath = "M8 5v14l11-7z";
+const pausePath = "M6 19h4V5H6v14zm8-14v14h4V5h-4z";
+
+// 3. Audio Control Logic
+const wrappers = document.querySelectorAll('.audio-cover-wrapper');
+
+wrappers.forEach(wrapper => {
+    wrapper.addEventListener('click', () => {
+        const currentIsland = wrapper.closest('.audio-island');
+        const audio = currentIsland.querySelector('audio');
+        const iconPath = wrapper.querySelector('.play-icon path');
+        
+        if (!audio) return;
+
+        if (audio.paused) {
+            // Pause all other tracks safely before starting the new one
+            document.querySelectorAll('.audio-island').forEach(island => {
+                const otherAudio = island.querySelector('audio');
+                const otherPath = island.querySelector('.play-icon path');
+                
+                if (otherAudio && otherAudio !== audio && !otherAudio.paused) {
+                    otherAudio.pause();
+                    // Reset its icon back to play arrow
+                    if (otherPath) otherPath.setAttribute('d', playPath); 
+                }
+            });
+
+            // Start playing the new track
+            audio.play()
+                .then(() => {
+                    // Only change the icon to pause once the browser successfully starts streaming
+                    if (iconPath) iconPath.setAttribute('d', pausePath);
+                })
+                .catch(error => {
+                    console.error("Playback was blocked or prevented:", error);
+                });
+
+        } else {
+            // If clicking the currently playing track, pause it
+            audio.pause();
+            if (iconPath) iconPath.setAttribute('d', playPath);
         }
-    }
-}, true); // The "true" here is important to catch the play event as it bubbles up
+    });
+});
 </script>
 
 </section>
